@@ -1,0 +1,35 @@
+[Unit]
+Description=MongoDB 3.4 Database Server
+Documentation=https://docs.mongodb.org/manual
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User={{ mongo34_user }} 
+Group={{ mongo34_group }} 
+ExecStart={{ mongo34_path}}/bin/mongod -f {{ mongo34_config }}
+ExecStartPre=/usr/bin/mkdir -p /var/run/mongodb34
+ExecStartPre=/usr/bin/chown {{ mongo34_user }}:{{ mongo34_group }} /var/run/mongodb34
+ExecStartPre=/usr/bin/chmod 0755 /var/run/mongodb34
+PermissionsStartOnly=true
+PIDFile=/var/run/mongodb34/mongod.pid
+# file size
+LimitFSIZE=infinity
+# cpu time
+LimitCPU=infinity
+# virtual memory size
+LimitAS=infinity
+# open files
+LimitNOFILE=64000
+# processes/threads
+LimitNPROC=64000
+# locked memory
+LimitMEMLOCK=infinity
+# total threads (user+kernel)
+TasksMax=infinity
+TasksAccounting=false
+# Recommended limits for mongod as specified in
+# https://docs.mongodb.com/manual/reference/ulimit/#recommended-ulimit-settings
+
+[Install]
+WantedBy=multi-user.target

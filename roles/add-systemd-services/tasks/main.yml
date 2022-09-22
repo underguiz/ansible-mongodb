@@ -1,0 +1,12 @@
+- name: Create unit files
+  template: 
+    src: "{{ item }}.service.j2"
+    dest: "/lib/systemd/system/{{ item }}.service" 
+    mode: 0644
+  loop:
+    - mongo36
+    - mongo34
+    - mongo32
+
+- name: Reload systemctl
+  command: systemctl daemon-reload

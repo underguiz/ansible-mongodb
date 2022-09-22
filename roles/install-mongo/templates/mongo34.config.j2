@@ -1,0 +1,10 @@
+net:
+   bindIp: 0.0.0.0
+   port: {{ mongo34_port }}
+storage:
+   dbPath: {{ mongo34_data_path }}
+storage:
+   journal:
+      enabled: true
+replication:
+   replSetName: mongo34

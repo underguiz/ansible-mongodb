@@ -1,0 +1,8 @@
+- hosts: all
+  become: true
+
+  roles:
+
+    - { role: add-users }
+    - { role: install-mongo }
+    - { role: add-systemd-services }

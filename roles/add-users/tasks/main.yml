@@ -1,0 +1,19 @@
+- name: Create groups
+  ansible.builtin.group:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ mongo36_group }}"
+    - "{{ mongo34_group }}"
+    - "{{ mongo32_group }}"
+
+- name: Add users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    comment: "{{ item.name }}"
+    group: "{{ item.group }}"
+    system: yes
+  loop:
+    - { name: "{{ mongo36_user }}", group: "{{ mongo36_group }}" }
+    - { name: "{{ mongo34_user }}", group: "{{ mongo34_group }}" }
+    - { name: "{{ mongo32_user }}", group: "{{ mongo32_group }}" }
