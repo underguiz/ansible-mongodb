@@ -1,6 +1,20 @@
 - hosts: all
   become: true
 
+  pre_tasks:
+
+    - name: Download mongo locally
+      become: false
+      run_once: true
+      local_action:
+          module: ansible.builtin.get_url
+          url: "{{ item }}"
+          dest: roles/install-mongo/files/
+      loop:
+        - "{{ mongo36_url }}"
+        - "{{ mongo34_url }}"
+        - "{{ mongo32_url }}"
+
   roles:
 
     - { role: add-users }

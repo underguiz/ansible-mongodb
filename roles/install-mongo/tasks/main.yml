@@ -21,13 +21,12 @@
     extra_opts: [--strip-components=1]
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    remote_src: yes
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
   loop:
-    - { src: "{{ mongo36_url }}", dest: "{{ mongo36_path }}", owner: "{{ mongo36_user }}", group: "{{ mongo36_group }}" }
-    - { src: "{{ mongo34_url }}", dest: "{{ mongo34_path }}", owner: "{{ mongo34_user }}", group: "{{ mongo34_group }}" }
-    - { src: "{{ mongo32_url }}", dest: "{{ mongo32_path }}", owner: "{{ mongo32_user }}", group: "{{ mongo32_group }}" }
+    - { src: "{{ mongo36_tgz }}", dest: "{{ mongo36_path }}", owner: "{{ mongo36_user }}", group: "{{ mongo36_group }}" }
+    - { src: "{{ mongo34_tgz }}", dest: "{{ mongo34_path }}", owner: "{{ mongo34_user }}", group: "{{ mongo34_group }}" }
+    - { src: "{{ mongo32_tgz }}", dest: "{{ mongo32_path }}", owner: "{{ mongo32_user }}", group: "{{ mongo32_group }}" }
 
 - name: Generate config files
   template: 

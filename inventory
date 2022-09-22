@@ -1,6 +1,7 @@
 [all:vars]
 
 mongo36_url=https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel80-3.6.23.tgz
+mongo36_tgz=mongodb-linux-x86_64-rhel80-3.6.23.tgz
 mongo36_path=/opt/mongo36
 mongo36_group=mongo36
 mongo36_user=mongo36
@@ -9,6 +10,7 @@ mongo36_port=27017
 mongo36_data_path=/data/database1
 
 mongo34_url=https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel80-3.4.24.tgz
+mongo34_tgz=mongodb-linux-x86_64-rhel80-3.4.24.tgz
 mongo34_path=/opt/mongo34
 mongo34_group=mongo34
 mongo34_user=mongo34
@@ -17,6 +19,7 @@ mongo34_port=27018
 mongo34_data_path=/data/database2
 
 mongo32_url=https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-3.2.22.tgz
+mongo32_tgz=mongodb-linux-x86_64-rhel70-3.2.22.tgz
 mongo32_path=/opt/mongo32
 mongo32_group=mongo32
 mongo32_user=mongo32
